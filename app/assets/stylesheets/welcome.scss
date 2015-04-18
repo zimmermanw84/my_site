@@ -1,3 +1,190 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.mobile_title {
+  display: none;
+}
+
+.top_pic {
+
+  background-image: url("http://zimmermanw84.github.io/re_design/img/space_hat.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  max-width: 100%;
+  height: 40em;
+  margin: 0;
+  /*margin-right: 0;*/
+}
+
+
+/*------------------------*/
+body {
+  /* Have to ! thanks BOOTSTRAP */
+  background-color: black !important;
+  font-family: 'Raleway', sans-serif !important;
+  margin-left: 0;
+  margin-right: 0;
+  /*margin-top: 0;*/
+}
+
+#title {
+  color:white;
+  position: relative;
+  margin-top: 0.2em;
+  display: inline-block;
+  font-size: 4em;
+  margin-left: 0.5em;
+}
+
+/*Social Nav top*/
+
+#social {
+  margin-top: 2em;
+}
+
+.nav_top {
+  color: white;
+  list-style: none;
+  float: right;
+}
+
+.nav_bottom {
+  color: white;
+  list-style: none;
+  text-align: center;
+}
+
+li {
+  display: inline-block;
+  margin-right: 1cm;
+}
+
+#links {
+  display: block;
+  position: absolute;
+}
+
+#intro {
+  margin-top: -1em;
+  /*background-color: #6A6B7F;*/
+  background-color: white;
+  margin-left: 0em;
+  max-width: 100%;
+  position: relative;
+  padding-bottom: 1em;
+  padding-top:1em;
+}
+
+#pro {
+  background-color: #E8E8E1;
+  margin-left:0;
+  max-width: 100%;
+  /*position: static;*/
+  /*margin-top: 47em;*/
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+  position: relative;
+}
+
+h2 {
+  font-size: 3em;
+  text-align: center;
+}
+
+p {
+  font-size: 2em;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  text-align: center;
+}
+
+
+.rocket {
+  /*background-image: url("http://zimmermanw84.github.io/re_design/img/rocket.jpg");*/
+  background-image: url("http://zimmermanw84.github.io/re_design/img/launch.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:100% auto;
+  max-width: 100%;
+  height: 25em;
+  margin-left: 0;
+  /*margin-top: 5em;*/
+}
+
+footer {
+  padding-top: 2em;
+}
+
+#head_shot {
+  /*margin-top: 0em;*/
+  width: 10em;
+  height: 10em;
+  position: relative;
+  /*left: 50%;*/
+  /*top: 50%;*/
+  /*transform: translate(-50%, -50%);*/
+  /*-ms-transform: translate(-50%, -50%);*/
+  /* IE 9 */
+
+  /*-webkit-transform: translate(-50%, -50%);*/
+
+}
+
+h4 {
+  color: white;
+  text-align: center;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity:0.5;
+}
+
+
+@media only screen and (max-width: 767px) {
+
+  #title {
+    color:white;
+    position: relative;
+    margin-top: 9em;
+    display: inline-block;
+    font-size: 4em;
+    margin-left: 0.5em;
+    display: none;
+  }
+
+
+  div ul li {
+    margin-right: 0em;
+    display: inline-block;
+  }
+
+  div ul {
+    margin-right: 1.5em;
+  }
+
+  #head_shot {
+    display: none;
+
+  }
+
+  .nav_moblie {
+    margin-right: 2em;
+    text-align: center;
+  }
+
+  .mobile_title {
+    font-size: 2em;
+    color: white;
+    position: absolute;
+    text-align: center;
+  }
+
+}

@@ -80,26 +80,44 @@
 </div>
 <div id="intro">
   <h1 id="top">Comments</h1>
+    <!-- temp will style later -->
+  <div class="container">
   <p>Go ahead leave a comment... I dare you</p>
   <section class="comments">
-      <h3 class="comment-count">0 Comments</h3>
+    <h3 class="comment-count">0 Comments</h3>
+    <form id="comment-form">
+      <div class="form-row">
+        <textarea name="content" placeholder="Leave a comment..."></textarea>
+        <a href="#" class="fullscreen">&#9000;</a>
+      </div>
+      <div class="form-row buttons">
+        <span class="email"></span>
+        <a href="#" class="btn dark sign-in"><span>Sign in to leave a comment...</span></a>
+        <button class="btn submit" type="submit">Post your comment</button>
+        <button class="btn logout dark" type="button" style="display:none">Logout</button>
+      </div>
+    </form>
 
-      <form id="comment-form">
-        <div class="form-row">
-          <textarea name="content" placeholder="Leave a message..."></textarea>
-          <a href="#" class="fullscreen">&#9000;</a>
-        </div>
-        <div class="form-row buttons">
-          <span class="email"></span>
-          <a href="#" class="btn dark sign-in"><span>Sign in to leave a comment...</span></a>
-          <button class="btn submit" type="submit">Post your comment</button>
-          <button class="btn logout dark" type="button" style="display:none">Logout</button>
-        </div>
-      </form>
+    <ul id="comment-list">
+      <% if @comments %>
+      <% @comments.each do |comment| %>
+      <header>
+        <span class="author-email"><a href=""><%= comment.email %></a></span>
+        <span class="date"><%= comment.created_at %></span>
 
-      <ul id="comment-list"></ul>
+        <nav>
+          [<a href="#" class="delete">x</a>]
+        </nav>
+      </header>
+      <div class="comment-content">
+        <%= comment.content %>
+      </div>
+      <% end %>
+      <% end %>
+    </ul>
 
-    </section>
+  </section>
+  </div>
 </div>
 <footer>
   <div class="nav_bottom">

@@ -99,21 +99,7 @@
     </form>
 
     <ul id="comment-list">
-      <% if @comments %>
-      <% @comments.each do |comment| %>
-      <header>
-        <span class="author-email"><a href=""><%= comment.email %></a></span>
-        <span class="date"><%= comment.created_at %></span>
 
-        <nav>
-          [<a href="#" class="delete">x</a>]
-        </nav>
-      </header>
-      <div class="comment-content">
-        <%= comment.content %>
-      </div>
-      <% end %>
-      <% end %>
     </ul>
 
   </section>

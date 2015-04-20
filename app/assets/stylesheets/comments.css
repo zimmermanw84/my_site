@@ -111,3 +111,7 @@ form {
   .form-row button {
     float: right;
   }
+
+#comment-list li {
+  display: block;
+}

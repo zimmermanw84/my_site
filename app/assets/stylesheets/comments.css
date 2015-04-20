@@ -73,7 +73,6 @@ article {
 
 .comment-section {
   position: relative;
-  padding-top: 2em;
 }
 
 .comments {
@@ -139,13 +138,6 @@ article {
 .comment-container {
   position: relative;
   display: inherit;
-  /*text-align: center;*/
-  /*top: 50%;*/
-  /*left: 50%;*/
-  /*transform: translateY(-50%);*/
-  /*-ms-transform: translateY(-50%);*/
-  /* IE 9 */
-
-  /*-webkit-transform: translateY(-50%);*/
+  padding-top: 2em;
 
 }

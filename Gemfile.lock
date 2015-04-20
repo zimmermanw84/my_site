@@ -50,6 +50,9 @@ GEM
     bootstrap-sass (3.3.4.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
+    browserid-auth-rails (0.5.7)
+      jquery-rails
+      railties (>= 3.2)
     builder (3.2.2)
     byebug (4.0.5)
       columnize (= 0.9.0)
@@ -62,6 +65,9 @@ GEM
     coffee-script-source (1.9.1.1)
     columnize (0.9.0)
     debug_inspector (0.0.2)
+    dotenv (2.0.0)
+    dotenv-rails (2.0.0)
+      dotenv (= 2.0.0)
     eco (1.0.0)
       coffee-script
       eco-source
@@ -162,8 +168,10 @@ PLATFORMS
 DEPENDENCIES
   backbone-on-rails
   bootstrap-sass (~> 3.3.4)
+  browserid-auth-rails (= 0.5.7)
   byebug
   coffee-rails (~> 4.1.0)
+  dotenv-rails
   jbuilder (~> 2.0)
   jquery-rails
   pg

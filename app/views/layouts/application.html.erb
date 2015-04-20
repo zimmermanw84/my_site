@@ -9,12 +9,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Walt Zimmerman</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link rel="icon" type="image/png" href="/assets/lockeSolo.png" >
 </head>
 <body>
   <%= yield %>
 
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <!-- Perform basic BrowserID setup in the head section -->
+  <%= setup_browserid %>
+  <!-- Setup BrowserID with alert debugging -->
+  <%= setup_browserid debug: true %>
+  <!-- Setup BrowserID with a custom handler -->
 </body>
 </html>

@@ -87,14 +87,16 @@
     <form id="comment-form">
       <div class="form-row">
         <textarea name="content" placeholder="Leave a comment..."></textarea>
-        <input type="text" name="email">
-        <a href="#" class="fullscreen">&#9000;</a>
+        <% if session[:browserid_email] %>
+        <%= session[:browserid_email] %>
+        <input id='user-email' type="text" name="email" data-email="<%= session[:browserid_email] %>">
+        <% end %>
       </div>
       <div class="form-row buttons">
         <span class="email"></span>
-        <a href="#" class="btn dark sign-in"><span>Sign in to leave a comment...</span></a>
+        <a href="#" class="btn dark sign-in"><%= login_link "Login with Persona" %></a>
+        <button class="btn logout dark" type="button" style='display:block' ><%= logout_link %></button>
         <button class="btn submit" type="submit">Post your comment</button>
-        <button class="btn logout dark" type="button" style="display:none">Logout</button>
       </div>
     </form>
     <section class="comment-container">
@@ -116,3 +118,4 @@
   <h4>| Thanks for visiting. Design by Walt Zimmerman |</h4>
   <h4>2015&copy;</h4>
 </footer>
+

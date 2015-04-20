@@ -16,5 +16,6 @@
 //= require underscore
 //= require backbone
 //= require my_site
+//= require browserid
 //= require_tree ../templates
 //= require_tree .

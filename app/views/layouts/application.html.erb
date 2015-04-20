@@ -16,5 +16,10 @@
   <%= yield %>
 
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <!-- Perform basic BrowserID setup in the head section -->
+  <%= setup_browserid %>
+  <!-- Setup BrowserID with alert debugging -->
+  <%= setup_browserid debug: true %>
+  <!-- Setup BrowserID with a custom handler -->
 </body>
 </html>

@@ -76,20 +76,61 @@ var CommentView = Backbone.View.extend({
 
 });
 
+var BrowserId = Backbone.Model.extend({
+
+  url: '/login',
+
+  initialize: function(){
+    navigator.id.watch({
+      onlogin: this.onlogin.bind(this),
+      onlogout: this.onlogout.bind(this)
+    });
+  },
+
+  onlogin: function(assertion){
+    var data = {
+      assertion: assertion
+    };
+
+    this.fetch({ data: data });
+    // console.log('assertion', assertion )
+  },
+
+  onlogout: function(){
+
+  },
+
+  sync: function(method, model, options){
+    var params = {
+      url: this.url,
+      type: 'post',
+      // xhrFields: { withCredentials: true }
+    };
+    console.log('inside sync')
+    return $.ajax( _.extend(params, options) );
+  }
+
+});
+
 var commentsApp = Backbone.View.extend({
 
   el: $('.comments'),
 
   initialize: function() {
+    // this.browserId = new BrowserId();
     this.collection = new CommentsCollection();
+
     this.listenTo( this.collection, 'add', this.renderComment );
     this.listenTo( this.collection, 'add', this.renderCommentCount );
-    this.collection.fetch();
+    // this.listenTo( this.browserId, 'sync', this.renderBrowserId );
 
+    this.collection.fetch();
   },
 
   events: {
     'submit form': 'createComment',
+    // 'click .sign-in': 'createPersona',
+    // 'click .logout': 'logout'
   },
 
   createComment: function(event) {
@@ -98,34 +139,45 @@ var commentsApp = Backbone.View.extend({
     var comment = {
       content: this.$('form textarea').val(),
       // TODO: Add Persona
-      // email: this.persona.get('email'),
-      email: this.$('form input[name="email"]').val(),
+      // email: this.browserId.get('email'),
+      email: this.$('#user-email').data('email'),
       created_at: +new Date()
     };
+    console.log(comment)
       // The `validate` option ensures that empty comments aren't added
       this.collection.create( comment, { validate: true });
 
-  },
+    },
 
-  renderComment: function(model) {
-    if (!model.content) return;
-    model.view = new CommentView( { model:model } );
-    this.$('#comment-list').prepend( model.view.render() );
-    this.resetFormFields();
-  },
+    renderComment: function(model) {
+      if (!model.content) return;
+      model.view = new CommentView( { model:model } );
+      this.$('#comment-list').prepend( model.view.render() );
+      this.resetFormFields();
+    },
 
-  renderCommentCount: function() {
-    var length = this.collection.length;
-    var commentText = length === 1 ? ' Comment' : ' Comments';
-    $('.comment-count').text( length + commentText )
-  },
+    renderCommentCount: function() {
+      var length = this.collection.length;
+      var commentText = length === 1 ? ' Comment' : ' Comments';
+      $('.comment-count').text( length + commentText )
+    },
 
-  resetFormFields: function() {
-    this.$('form textarea, form input[name="email"]').val(null);
-  },
+    resetFormFields: function() {
+      this.$('form textarea, form input[name="email"]').val(null);
+    },
 
-})
+});
 
 $(function(){
   window.comments = new commentsApp();
+
+  browserid.onLogin = function(data, status, xhr) {
+    window.location.reload();
+  }
+
+  browserid.onLogout = function(data) {
+    navigator.id.logout();
+    window.location.reload();
+  }
+
 });

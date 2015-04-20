@@ -115,3 +115,8 @@ form {
 #comment-list li {
   display: block;
 }
+
+.comment-container {
+  position: relative;
+  display: inherit;
+}

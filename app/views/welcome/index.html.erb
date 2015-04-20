@@ -80,14 +80,14 @@
 </div>
 <div id="intro">
   <h1 id="top">Comments</h1>
-    <!-- temp will style later -->
-  <div class="container">
+  <!-- temp will style later -->
   <p>Go ahead leave a comment... I dare you</p>
   <section class="comments">
     <h3 class="comment-count">0 Comments</h3>
     <form id="comment-form">
       <div class="form-row">
         <textarea name="content" placeholder="Leave a comment..."></textarea>
+        <input type="text" name="email">
         <a href="#" class="fullscreen">&#9000;</a>
       </div>
       <div class="form-row buttons">
@@ -97,13 +97,10 @@
         <button class="btn logout dark" type="button" style="display:none">Logout</button>
       </div>
     </form>
-
-    <ul id="comment-list">
-
-    </ul>
-
+    <section class="comment-container">
+      <ul id="comment-list" class="list-group"></ul>
+    </section>
   </section>
-  </div>
 </div>
 <footer>
   <div class="nav_bottom">

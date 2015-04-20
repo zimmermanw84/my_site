@@ -1,11 +1,13 @@
 var CommentModel = Backbone.Model.extend({
   validate: function(attr) {
     if( !attr.email ) {
-      return 'Email Rquired!';
+      alert('Email Required!');
+      return;
     }
 
     if ( !attr.content ) {
-      return 'Comment field cannot be blank!';
+      alert('Comment field cannot be blank!');
+      return;
     }
   },
 
@@ -18,10 +20,10 @@ var CommentModel = Backbone.Model.extend({
 
 var CommentsCollection = Backbone.Collection.extend({
   model: CommentModel,
-    // localStorage: new Backbone.LocalStorage('Comments'),
+
   localStorage: [],
 
-  url: 'comments'
+  url: '/comments'
 
 });
 
@@ -31,64 +33,84 @@ var CommentView = Backbone.View.extend({
 
   // Super anit-pattern terrible >.<
   template: "<header> <span class='author-email'><a href='#'><%= email %></a></span>" +
-      " <span class='date'><%= formatDate %></span> " +
-      " <nav> [<a href='#' class='delete'>x</a>]  </nav>" +
-    " </header> <div class='comment-content'> <%= content %> </div>",
+  " <span class='date'><%= formatDate %></span> " +
+  " <nav> [<a href='#' class='delete'>x</a>]  </nav>" +
+  " </header> <div class='comment-content'> <%= content %> </div>",
+
+  events: {
+    'click .delete': 'destroy',
+  },
 
   initialize: function(params) {
-      if( !this.model ){
-        throw new Error('You must provide a Comment model');
-      };
-      console.log('prams', params )
-      // console.log("prams from view init", params)
-      console.log("this model in view", this.model.content)
-      // _.bindAll(this, 'render')
-      this.listenTo( this.model, 'sync', this.render);
+    if( !this.model ){
+      throw new Error('You must provide a Comment model');
+    };
+    this.$el.attr( "class", "list-group-item" );
+    this.listenTo( this.model, 'remove', this.remove);
+    this.listenTo( this.model, 'sync', this.render);
   },
 
   render: function(){
-      var obj = {
-        email: this.model.email,
-        content: this.model.content,
-        formatDate: this.model.get('created_at'),
-      }
-      // console.log( $('#comment-template').html() )
-      var template = _.template( this.template )
-      this.$el.html( template(obj) );
-      // console.log("this.$el", this.$el.html() )
+    var obj = {
+      email: this.model.email,
+      content: this.model.content,
+      formatDate: this.model.get('created_at'),
+    }
 
-      return this.$el;
+    var template = _.template( this.template )
+    this.$el.html( template(obj) );
+
+    return this.$el;
+  },
+
+  destroy: function(event){
+    event.preventDefault();
+    this.model.destroy();
   },
 
   formatDate: function(){
-      var date = this.model.get('created_at');
-      return date;
+    var date = this.model.get('created_at');
+    return date;
   },
 
 
-})
+});
 
 var commentsApp = Backbone.View.extend({
+
+  el: $('.comments'),
 
   initialize: function() {
     this.collection = new CommentsCollection();
     this.listenTo( this.collection, 'add', this.renderComment );
     this.listenTo( this.collection, 'add', this.renderCommentCount );
     this.collection.fetch();
-    // console.log('inside commentsApp', this.collection)
+
   },
 
   events: {
-    // TODO: Put update events
+    'submit form': 'createComment',
   },
 
-  creatComment: function() {
-    // TODO: Handle create comment event
+  createComment: function(event) {
+    event.preventDefault();
+    // Create a new Comment Model with the data in the form
+    var comment = {
+      content: this.$('form textarea').val(),
+      // TODO: Add Persona
+      // email: this.persona.get('email'),
+      email: this.$('form input[name="email"]').val(),
+      created_at: +new Date()
+    };
+      // The `validate` option ensures that empty comments aren't added
+      this.collection.create( comment, { validate: true });
+
   },
 
   renderComment: function(model) {
+    if (!model.content) return;
     model.view = new CommentView( { model:model } );
-    $('#comment-list').prepend( model.view.render() );
+    this.$('#comment-list').prepend( model.view.render() );
     this.resetFormFields();
   },
 
@@ -101,9 +123,9 @@ var commentsApp = Backbone.View.extend({
   resetFormFields: function() {
     this.$('form textarea, form input[name="email"]').val(null);
   },
+
 })
 
 $(function(){
   window.comments = new commentsApp();
-
 });

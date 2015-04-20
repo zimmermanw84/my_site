@@ -1,0 +1,13 @@
+<script type="text/template" id="comment-template">
+  <header>
+    <span class="author-email"><a href=""><%= email %></a></span>
+    <span class="date"><%= formatDate() %></span>
+
+    <nav>
+      [<a href="#" class="delete">x</a>]
+    </nav>
+  </header>
+  <div class="comment-content">
+    <%= content %>
+  </div>
+</script>

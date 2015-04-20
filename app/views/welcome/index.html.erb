@@ -81,28 +81,34 @@
 <div id="intro">
   <h1 id="top">Comments</h1>
   <!-- temp will style later -->
-  <p>Go ahead leave a comment... I dare you</p>
-  <section class="comments">
+  <p>Go ahead leave a comment... I'd love to hear from you.</p>
+  <div class="comment-section">
+  <section class="comments input-group-lg">
     <h3 class="comment-count">0 Comments</h3>
+    <% if session[:browserid_email] %>
     <form id="comment-form">
       <div class="form-row">
         <textarea name="content" placeholder="Leave a comment..."></textarea>
-        <% if session[:browserid_email] %>
-        <%= session[:browserid_email] %>
-        <input id='user-email' type="text" name="email" data-email="<%= session[:browserid_email] %>">
-        <% end %>
+        <input id='user-email' type="hidden" name="email" data-email="<%= session[:browserid_email] %>">
+
       </div>
       <div class="form-row buttons">
         <span class="email"></span>
-        <a href="#" class="btn dark sign-in"><%= login_link "Login with Persona" %></a>
-        <button class="btn logout dark" type="button" style='display:block' ><%= logout_link %></button>
-        <button class="btn submit" type="submit">Post your comment</button>
+        <button class="btn logout dark" type="button" style='float:left' ><%= logout_link %></button>
+        <button class="btn submit" type="submit">Post your comment <%= session[:browserid_email] %></button>
       </div>
     </form>
+      <% else %>
+      <div class="no-user">
+        <p>You must login to leave a message...</p>
+        <a href="/login" class="browserid_login btn">Login with Persona</a>
+        </div>
+      <% end %>
     <section class="comment-container">
       <ul id="comment-list" class="list-group"></ul>
     </section>
   </section>
+</div>
 </div>
 <footer>
   <div class="nav_bottom">

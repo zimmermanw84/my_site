@@ -71,20 +71,40 @@ article {
   }
 
 
+.comment-section {
+  position: relative;
+  padding-top: 2em;
+}
+
 .comments {
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+   /*IE 9 */
+
+  -webkit-transform: translateX(-50%);
+}
+
+/*.no-user {
+  padding-bottom: 2em;
+}
+*/
+.no-user p {
   display: inline-block;
 }
 
 
-form {
+/*form {
   width: 650px;
   padding: 20px;
   border: 1px solid grey;
   float: left;
-}
+}*/
 
 .form-row {
-  float: left;
+  /*float: left;*/
   clear: both;
   width: 100%;
   padding-bottom: 1em;
@@ -104,7 +124,7 @@ form {
   .form-row textarea {
     padding: 0.5em;
     width: 98%;
-    width: calc(100% - 1em);
+    /*width: calc(100% - 1em);*/
     height: 4em;
   }
 
@@ -119,4 +139,13 @@ form {
 .comment-container {
   position: relative;
   display: inherit;
+  /*text-align: center;*/
+  /*top: 50%;*/
+  /*left: 50%;*/
+  /*transform: translateY(-50%);*/
+  /*-ms-transform: translateY(-50%);*/
+  /* IE 9 */
+
+  /*-webkit-transform: translateY(-50%);*/
+
 }

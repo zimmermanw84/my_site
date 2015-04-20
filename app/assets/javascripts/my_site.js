@@ -34,7 +34,8 @@ var CommentView = Backbone.View.extend({
   // Super anit-pattern terrible >.<
   template: "<header> <span class='author-email'><a href='#'><%= email %></a></span>" +
   " <span class='date'><%= formatDate %></span> " +
-  " <nav> [<a href='#' class='delete'>x</a>]  </nav>" +
+  // the time will come when comments have to be deleted or break down and make an admin UI
+  // " <nav> [<a href='#' class='delete'>x</a>]  </nav>" +
   " </header> <div class='comment-content'> <%= content %> </div>",
 
   events: {
@@ -76,61 +77,22 @@ var CommentView = Backbone.View.extend({
 
 });
 
-var BrowserId = Backbone.Model.extend({
-
-  url: '/login',
-
-  initialize: function(){
-    navigator.id.watch({
-      onlogin: this.onlogin.bind(this),
-      onlogout: this.onlogout.bind(this)
-    });
-  },
-
-  onlogin: function(assertion){
-    var data = {
-      assertion: assertion
-    };
-
-    this.fetch({ data: data });
-    // console.log('assertion', assertion )
-  },
-
-  onlogout: function(){
-
-  },
-
-  sync: function(method, model, options){
-    var params = {
-      url: this.url,
-      type: 'post',
-      // xhrFields: { withCredentials: true }
-    };
-    console.log('inside sync')
-    return $.ajax( _.extend(params, options) );
-  }
-
-});
 
 var commentsApp = Backbone.View.extend({
 
   el: $('.comments'),
 
   initialize: function() {
-    // this.browserId = new BrowserId();
     this.collection = new CommentsCollection();
 
     this.listenTo( this.collection, 'add', this.renderComment );
     this.listenTo( this.collection, 'add', this.renderCommentCount );
-    // this.listenTo( this.browserId, 'sync', this.renderBrowserId );
 
     this.collection.fetch();
   },
 
   events: {
     'submit form': 'createComment',
-    // 'click .sign-in': 'createPersona',
-    // 'click .logout': 'logout'
   },
 
   createComment: function(event) {
@@ -176,7 +138,6 @@ $(function(){
   }
 
   browserid.onLogout = function(data) {
-    navigator.id.logout();
     window.location.reload();
   }
 

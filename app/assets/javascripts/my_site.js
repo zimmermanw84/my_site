@@ -56,14 +56,14 @@
     },
 
     render: function(){
-      var obj = {
+      var commentInfo = {
         email: this.model.email,
         content: this.model.content,
         formatDate: this.model.get('created_at'),
       }
 
       var template = _.template( this.template )
-      this.$el.html( template(obj) );
+      this.$el.html( template(commentInfo) );
 
       return this.$el;
     },

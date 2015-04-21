@@ -51,9 +51,7 @@ a:hover {
 .btn.disabled,
 .btn[disabled] {
   cursor: default;
-  pointer-events: none; // Future-proof disabling of clicks
-  .opacity(.65);
-  .box-shadow(none);
+  pointer-events: none;
 }
 
 

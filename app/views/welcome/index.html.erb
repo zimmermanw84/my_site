@@ -94,8 +94,8 @@
       </div>
       <div class="form-row buttons">
         <span class="email"></span>
-        <button class="btn logout dark" type="button" style='float:left' ><%= logout_link %></button>
         <button class="btn submit" type="submit">Post your comment <%= session[:browserid_email] %></button>
+        <a href="/logout" class="btn logout dark browserid_logout">Logout</a>
       </div>
     </form>
       <% else %>

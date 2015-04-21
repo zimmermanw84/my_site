@@ -76,7 +76,6 @@
       return date;
     },
 
-
   });
 
 
@@ -106,40 +105,36 @@
         created_at: +new Date()
       };
         // The `validate` option ensures that empty comments aren't added
-        this.collection.create( comment, { validate: true });
+      this.collection.create( comment, { validate: true });
+    },
 
-      },
-
-      renderComment: function(model) {
+    renderComment: function(model) {
         if (!model.content) return;
         model.view = new CommentView( { model:model } );
         this.$('#comment-list').prepend( model.view.render() );
         this.resetFormFields();
-      },
+    },
 
-      renderCommentCount: function() {
-        var length = this.collection.length;
-        var commentText = length === 1 ? ' Comment' : ' Comments';
-        $('.comment-count').text( length + commentText )
-      },
+    renderCommentCount: function() {
+      var length = this.collection.length;
+      var commentText = length === 1 ? ' Comment' : ' Comments';
+      $('.comment-count').text( length + commentText )
+    },
 
-      resetFormFields: function() {
-        this.$('form textarea, form input[name="email"]').val(null);
-      },
+    resetFormFields: function() {
+      this.$('form textarea, form input[name="email"]').val(null);
+    },
 
   });
 
   $(function(){
     window.comments = new commentsApp();
-
     browserid.onLogin = function(data, status, xhr) {
       window.location.reload();
     }
-
     browserid.onLogout = function(data) {
       window.location.reload();
     }
-
   });
 
 })();

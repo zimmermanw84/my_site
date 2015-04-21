@@ -100,12 +100,9 @@ var commentsApp = Backbone.View.extend({
     // Create a new Comment Model with the data in the form
     var comment = {
       content: this.$('form textarea').val(),
-      // TODO: Add Persona
-      // email: this.browserId.get('email'),
       email: this.$('#user-email').data('email'),
       created_at: +new Date()
     };
-    console.log(comment)
       // The `validate` option ensures that empty comments aren't added
       this.collection.create( comment, { validate: true });
 

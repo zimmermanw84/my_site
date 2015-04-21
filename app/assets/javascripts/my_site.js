@@ -1,5 +1,7 @@
 (function() {
 
+  "use strict";
+
   var CommentModel = Backbone.Model.extend({
     validate: function(attr) {
       if( !attr.email ) {

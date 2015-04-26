@@ -51,8 +51,8 @@
         throw new Error('You must provide a Comment model');
       };
       this.$el.attr( "class", "list-group-item" );
-      this.listenTo( this.model, 'remove', this.remove);
-      this.listenTo( this.model, 'sync', this.render);
+      this.listenTo( this.model, 'remove', this.remove );
+      this.listenTo( this.model, 'sync', this.render );
     },
 
     render: function(){
@@ -131,7 +131,7 @@
 
   $(function(){
     window.comments = new commentsApp();
-    browserid.onLogin = function(data, status, xhr) {
+    browserid.onLogin = function(data) {
       window.location.reload();
     }
     browserid.onLogout = function(data) {

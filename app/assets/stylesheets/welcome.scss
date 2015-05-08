@@ -105,6 +105,17 @@ li {
   padding-top:1em;
 }
 
+#comments {
+  margin-top: -1em;
+  /*background-color: #6A6B7F;*/
+  background-color: white;
+  margin-left: 0em;
+  max-width: 100%;
+  position: relative;
+  padding-bottom: 1em;
+  padding-top:1em;
+}
+
 #pro {
   background-color: #E8E8E1;
   margin-left:0;
@@ -116,7 +127,7 @@ li {
   position: relative;
 }
 
-#top {
+.top {
   font-size: 3em;
   text-align: center;
 }

@@ -17,5 +17,6 @@
 //= require backbone
 //= require my_site
 //= require browserid
+//= require bootstrap
 //= require_tree ../templates
 //= require_tree .

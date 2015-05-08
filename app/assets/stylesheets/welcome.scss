@@ -40,13 +40,42 @@ body {
 
 /*Social Nav top*/
 
+/* Connect */
+
+.glyphicon-envelope {
+  font-size: 4.5em;
+}
+
+.nav_bottom img {
+  margin-top: -3em;
+}
+
+.modal-dialog {
+  text-align: center;
+  position: fixed !important;
+  z-index: 99999 !important;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  /* IE 9 */
+
+  -webkit-transform: translate(-50%, -50%);
+  /* Chrome, Safari, Opera */
+
+}
+
+.modal-backdrop {
+  z-index: 9999 !important;
+}
+
 /* Sticky Nav */
 .navbar-fixed {
   position: fixed;
   top: -30px;
   width: 100%;
   background-color: black;
-  z-index: 99999;
+  z-index: 999;
   height: 8em;
   /*box-shadow: 0px 10px;*/
 }
@@ -196,6 +225,13 @@ a:hover {
   opacity:0.5;
 }
 
+.project-container h2 a {
+  color: black;
+}
+
+.project-container h2 a:hover {
+  text-decoration: none;
+}
 
 @media only screen and (max-width: 767px) {
 

@@ -40,6 +40,34 @@ body {
 
 /*Social Nav top*/
 
+/* Sticky Nav */
+.navbar-fixed {
+  position: fixed;
+  top: -30px;
+  width: 100%;
+  background-color: black;
+  z-index: 99999;
+  height: 8em;
+  /*box-shadow: 0px 10px;*/
+}
+
+.nav_top a:hover {
+  text-decoration: none;
+}
+
+.main-nav h2 {
+  margin-top: 0 !important;
+}
+
+.main-nav {
+  position: relative;
+  height: 8em;
+}
+
+.navbar-fixed header {
+  margin-top: 2em;
+}
+
 #social {
   margin-top: 2em;
 }
@@ -116,12 +144,26 @@ footer {
   color: #FFF9F9;
 }
 
+.image-container {
+  position: relative;
+  height: 5em;
+  margin-top: 5em;
+}
+
 #head_shot {
   width: 10em;
   height: 10em;
-  position: relative;
+  border-radius: 25px;
+  position: absolute;
+  left: 50%;
+  /*top: 50%;*/
+  /*margin-top: 0;*/
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  /* IE 9 */
 
-
+  -webkit-transform: translate(-50%, -50%);
+  /* Chrome, Safari, Opera */
 }
 
 footer {

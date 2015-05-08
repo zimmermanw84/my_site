@@ -1,35 +1,21 @@
 (function() {
 
-  var stickySearchBar = (function() {
-
-  var $header = $('header').height();
+  var $header = $('.rocket').height();
 
   var stickSearchBar = function() {
     $(window).scroll(function() {
       if ($(this).scrollTop() > $header) {
-        $('.nav-landing').show();
-        $('.nav-landing').addClass('animated slideInDown');
+        $('.main-nav').addClass('navbar-fixed');
+        $('.main-nav').removeClass('main-nav');
       } else {
-        $('.nav-landing').hide();
+        $('.navbar-fixed').addClass('main-nav');
+        $('.main-nav').removeClass('navbar-fixed');
       }
     })
   };
 
-  var init = function() {
-    stickSearchBar();
-  };
-
-  return {
-    init:init,
-  };
-})();
-
-stickySearchBar.init();
-
-
-
   $(function() {
-
+    stickSearchBar();
   })
 
 })();

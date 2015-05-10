@@ -29,6 +29,8 @@ gem 'underscore-rails'
 
 gem 'backbone-on-rails'
 
+gem 'sitemap_generator'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

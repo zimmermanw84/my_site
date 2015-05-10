@@ -8,4 +8,6 @@
 
 - Backbone.js
 
-- Bootstrap... Kinda
+- Bootstrap
+
+- Persona SSO

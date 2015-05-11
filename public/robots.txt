@@ -4,4 +4,4 @@
 # User-agent: *
 # Disallow: /
 
-Sitemap: http://www.saltman.space/sitemap.xml.gz
+Sitemap: http://www.waltzimmerman.com/sitemap.xml.gz

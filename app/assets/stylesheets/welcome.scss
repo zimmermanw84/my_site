@@ -14,18 +14,14 @@
   max-width: 100%;
   height: 40em;
   margin: 0;
-  /*margin-right: 0;*/
 }
 
 
 /*------------------------*/
 body {
-  /* Have to ! thanks BOOTSTRAP */
-  background-color: black !important;
   font-family: 'Raleway', sans-serif !important;
   margin-left: 0;
   margin-right: 0;
-  /*margin-top: 0;*/
 }
 
 #title {
@@ -80,7 +76,6 @@ body {
   background-color: black;
   z-index: 999;
   height: 8em;
-  /*box-shadow: 0px 10px;*/
 }
 
 .nav_top a:hover {
@@ -95,6 +90,7 @@ body {
 .main-nav {
   position: relative;
   height: 8em;
+  background-color: black;
 }
 
 .navbar-fixed header {
@@ -129,7 +125,6 @@ li {
 
 #intro {
   margin-top: -1em;
-  /*background-color: #6A6B7F;*/
   background-color: white;
   margin-left: 0em;
   max-width: 100%;
@@ -140,7 +135,6 @@ li {
 
 #comments {
   margin-top: -1em;
-  /*background-color: #6A6B7F;*/
   background-color: white;
   margin-left: 0em;
   max-width: 100%;
@@ -178,6 +172,7 @@ p {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: black;
   max-width: 100%;
   height: 40em;
   margin-left: 0;
@@ -186,6 +181,8 @@ p {
 footer {
   padding-top: 2em;
   color: #FFF9F9;
+  background-color: black;
+  padding-bottom: 2em;
 }
 
 .image-container {

@@ -14,57 +14,34 @@
 
 <div id="pro">
   <h1 class="top">Projects</h1>
-  <ul>
-    <li>
-      <section class="project-container">
-        <h2><a target="_blank" href="#">Smart Potato <span class="glyphicon glyphicon-ban-circle"></span></a> <small>Currently Under Construction. Will be back soon.</small>
-        </h2>
-        <p>My final project for DBC. A movie aggregator that streamlines a user's movie watching experience.</p>
-        <ul>
-          <h3>Tech:</h3>
-          <li>Rails</li>
-          <li>Postgresql</li>
-          <li>Redis</li>
-          <li>JavaScript</li>
-          <li>Sass</li>
-          <li>Multiple APIs</li>
-          <li>HTML5/CSS3</li>
-        </ul>
-      </section>
-    </li>
-    <li>
-      <section class="project-container">
-        <h2><a target="_blank" href="https://saltychat.herokuapp.com/">Salty Chat <span class="glyphicon glyphicon-triangle-right"></span></a>
-        </h2>
-        <p>A very simple, crude in appearence, chat application. I really wanted to learn Node.js, so I taught myself while building this app.</p>
-        <ul>
-          <h3>Tech:</h3>
-          <li>Node.js</li>
-          <li>Express</li>
-          <li>MongoDB</li>
-          <li>Mongoose</li>
-          <li>JavaScript</li>
-          <li>Socket.io</li>
-          <li>HTML5/CSS3</li>
-        </ul>
-      </section>
-    </li>
-    <li>
-      <section class="project-container">
-        <h2><a target="_blank" href="https://frackjack.herokuapp.com/">Frack Jack <span class="glyphicon glyphicon-triangle-right"></span></a>
-        </h2>
-        <p>This is a spin off of a classic blackjack game. My very first deployed project.</p>
-        <ul>
-          <h3>Tech:</h3>
-          <li>Ruby/Sinatra</li>
-          <li>MySql</li>
-          <li>JavaScript</li>
-          <li>Activerecord</li>
-          <li>HTML5/CSS3</li>
-        </ul>
-      </section>
-    </li>
-  </ul>
+
+  <div class="projects">
+
+    <div class="project-container" data-toggle="modal" data-target="#see-the-need">
+      <h2 class="project-title">See The Need</h2>
+      <div class="project-container-img" style="background-image:url('/assets/project_pics/seetheneed.png')">
+      </div>
+    </div>
+
+    <div class="project-container" data-toggle="modal" data-target="#smart-potato">
+      <h2 class="project-title">Smart Potato</h2>
+      <div class="project-container-img" style="background-image:url('/assets/project_pics/smartpotato.png')">
+      </div>
+    </div>
+
+    <div class="project-container" data-toggle="modal" data-target="#salty">
+      <h2 class="project-title">Salty Chat</h2>
+      <div class="project-container-img" style="background-image:url('/assets/project_pics/salt-shaker.jpg')">
+      </div>
+    </div>
+
+    <div class="project-container" data-toggle="modal" data-target="#frack-jack">
+      <h2 class="project-title">Frack Jack</h2>
+      <div class="project-container-img" style="background-image:url('/assets/project_pics/bj.png')">
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <div class="rocket" alt="rocket ship">
@@ -106,4 +83,8 @@
   <center>
     <small>2015&copy;</small>
   </center>
+  <%= render 'modal_see_need' %>
+  <%= render 'modal_smart_potato' %>
+  <%= render 'modal_salty' %>
+  <%= render 'modal_frack_jack' %>
 </footer>

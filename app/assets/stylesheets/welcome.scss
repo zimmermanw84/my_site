@@ -50,6 +50,7 @@ body {
 }
 
 .modal-dialog {
+  display: none;
   text-align: center;
   position: fixed !important;
   z-index: 99999 !important;
@@ -58,7 +59,6 @@ body {
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   /* IE 9 */
-
   -webkit-transform: translate(-50%, -50%);
   /* Chrome, Safari, Opera */
 
@@ -159,7 +159,7 @@ li {
   text-align: center;
 }
 
-p {
+#intro p {
   font-size: 2em;
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -226,12 +226,65 @@ a:hover {
   opacity:0.5;
 }
 
-.project-container h2 a {
+.project-title {
+  text-align: center;
+}
+
+.projects {
+  text-align: center;
+}
+
+.project-container {
+  margin-left: 2em;
+  display: inline-block;
+  position: relative;
+}
+
+.project-container:hover {
+  /*background-color: black;*/
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.project-container-img {
+  border-radius: 20em;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  background-color: white;
+  /*border: 2px solid red;*/
+  text-align: center;
+  width: 18em;
+  height: 18em;
+  display: inline-block;
+}
+
+.modal-body {
+  color: black;
+  font-size: 1.5em;
+}
+
+.glyphicon {
+  font-size: 2em;
+}
+
+.model a:hover {
+  text-decoration: none;
+}
+
+.modal-footer {
   color: black;
 }
 
-.project-container h2 a:hover {
-  text-decoration: none;
+.tech-container {
+  text-align: center;
+}
+
+.tech-pic {
+
+  max-height: 5em;
+  max-width: 5em;
 }
 
 @media only screen and (max-width: 767px) {

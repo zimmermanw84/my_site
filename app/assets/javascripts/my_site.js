@@ -139,7 +139,7 @@
     }
 
     // bootstrap modal fix
-    $('.project-container').on('click', function() {
+    $('.project-container, #connect-trigger').on('click', function() {
       if ( $('.modal-dialog').css('display') === 'none' ) {
         $('.modal-dialog').css('display', 'block')
       }

@@ -1,6 +1,6 @@
 (function() {
 
-  var $header = $('.rocket').height();
+  var $header = $('#pro').height();
 
   var stickSearchBar = function() {
     $(window).scroll(function() {

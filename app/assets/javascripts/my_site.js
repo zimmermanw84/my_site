@@ -143,13 +143,14 @@
       if ( $('.modal-dialog').css('display') === 'none' ) {
         $('.modal-dialog').css('display', 'block')
       }
-    })
+    });
 
     $('.close').on('click', function() {
       if ( $('.modal-dialog').css('display') === 'block' ) {
         $('.modal-dialog').css('display', 'none')
       }
-    })
+    });
+
   });
 
 })();

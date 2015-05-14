@@ -1,5 +1,7 @@
 (function() {
 
+  "use strict";
+
   var $header = $('#pro').height();
 
   var stickSearchBar = function() {

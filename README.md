@@ -20,4 +20,3 @@
 
 - Fancy scroll over shoots target.
 
-- White space swipe right overflow (mobile only)

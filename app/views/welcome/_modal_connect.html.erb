@@ -7,13 +7,14 @@
         </div>
         <div class="modal-body">
           <div class="nav_bottom">
-            <ul>
-              <li><a target="_blank" href="https://github.com/zimmermanw84"><%= image_tag("GitHub-icon.png") %></a></li>
-              <li><a target="_blank" href="https://twitter.com/walt_z"><%= image_tag("Twitter-icon.png") %></a></li>
-              <li><a href="mailto:zimmermanw@icloud.com"><span class="glyphicon glyphicon-envelope"></span></a></li>
-              <li><a target="_blank" href="https://www.linkedin.com/pub/walt-zimmerman/a2/820/8b7"><%= image_tag("LinkedIn-icon.png") %></a></li>
-              <li><a target="_blank" href="https://google.com/+WaltZimmerman"><%= image_tag("GooglePlus-icon.png") %></a></li>
-            </ul>
+
+            <div class="connect-img-container">
+             <a target="_blank" href="https://github.com/zimmermanw84"><%= image_tag("GitHub-icon.png") %></a>
+             <a target="_blank" href="https://twitter.com/walt_z"><%= image_tag("Twitter-icon.png") %></a>
+             <a href="mailto:zimmermanw@icloud.com"><span class="glyphicon glyphicon-envelope"></span></a>
+             <a target="_blank" href="https://www.linkedin.com/pub/walt-zimmerman/a2/820/8b7"><%= image_tag("LinkedIn-icon.png") %></a>
+             <a target="_blank" href="https://google.com/+WaltZimmerman"><%= image_tag("GooglePlus-icon.png", id: "google-responsive") %></a>
+          </div>
           </div>
         </div>
         <div class="modal-footer">

@@ -1,41 +1,43 @@
+<%= render 'nav_mobile' %>
 <div class="top_pic" alt="sombrero galaxy">
   <%= render 'modal_connect' %>
 </div>
-  <%= render 'nav' %>
+<%= render 'nav' %>
+<%= render 'intro_responsive' %>
 <div id="intro">
   <div class="image-container">
-    <%= image_tag('head-shot.jpg', id: "head_shot") %>
+    <%= image_tag('head-shot.jpg', id: "head_shot", class: "img-responsive") %>
   </div>
   <h1 id="introduction" class="top">Introduction</h1>
   <p>
     Hello! Nice to meet you. My name is Walt Zimmerman and I am a full stack web developer. My passion for technology started when I was about 10 years old. I built my first computer when I was 13. When I turned 19 I joined the Army, sadly, at that point I lost interest in computers. When I got out of the Army I didn't have any direction in my life. To make ends meet I got a job dealing poker in a casino. I dealt for 7 years and when I turned 30 I felt like it was time for a change. While I learned a lot about life and people, I had very little translatable skills to an ever evolving work force. So I decided to re-introduce myself to my childhood passion, computers. My wife is a Dev Bootcamp graduate and a dedicated web developer in San Francisco and encouraged me to follow in her footsteps… So I did. I recently graduated Dev Bootcamp and I am having a blast building web applications. I wish I would have done this years ago. I truly believe that I was meant for this line of work. I am ready to work and exited for the opportunity to be apart of your team. Let’s build something great together!!
   </p>
 </div>
-
+<%= render 'pro_responsive' %>
 <div id="pro">
   <h1 class="top">Projects</h1>
 
   <div class="projects">
 
-    <div id="see-need-main" class="project-container" data-toggle="modal" data-target="#see-the-need">
+    <div class="see-need-main project-container" data-toggle="modal" data-target="#see-the-need">
       <h2 class="project-title">See The Need</h2>
       <div class="project-container-img" style="background-image:url('/assets/project_pics/seetheneed.png')">
       </div>
     </div>
 
-    <div id="smart-potato-main" class="project-container" data-toggle="modal" data-target="#smart-potato">
+    <div class="smart-potato-main project-container" data-toggle="modal" data-target="#smart-potato">
       <h2 class="project-title">Smart Potato</h2>
       <div class="project-container-img" style="background-image:url('/assets/project_pics/smartpotato.png')">
       </div>
     </div>
 
-    <div id="salty-main" class="project-container" data-toggle="modal" data-target="#salty">
+    <div class="salty-main project-container" data-toggle="modal" data-target="#salty">
       <h2 class="project-title">Salty Chat</h2>
       <div class="project-container-img" style="background-image:url('/assets/project_pics/salt-shaker.jpg')">
       </div>
     </div>
 
-    <div id="frack-jack-main" class="project-container" data-toggle="modal" data-target="#frack-jack">
+    <div class="frack-jack-main project-container" data-toggle="modal" data-target="#frack-jack">
       <h2 class="project-title">Frack Jack</h2>
       <div class="project-container-img" style="background-image:url('/assets/project_pics/bj.png')">
       </div>
@@ -47,35 +49,36 @@
 <div class="rocket" alt="rocket ship">
 </div>
 <div id="comments">
-  <h1 class="top">Comments</h1>
-  <!-- temp will style later -->
-  <p style="text-align:center;">Go ahead leave a comment... I'd love to hear from you.</p>
-  <div class="comment-section">
-    <section class="comments input-group-lg">
-      <h3 class="comment-count">0 Comments</h3>
-      <% if session[:browserid_email] %>
-      <form id="comment-form">
-        <div class="form-row">
-          <textarea name="content" placeholder="Leave a comment..."></textarea>
-          <input id='user-email' type="hidden" name="email" data-email="<%= session[:browserid_email] %>">
-
+  <div class="container-fluid">
+    <h1 class="top">Comments</h1>
+    <!-- temp will style later -->
+    <p style="text-align:center;">Go ahead leave a comment... I'd love to hear from you.</p>
+    <div class="comment-section">
+      <section class="comments input-group-lg">
+        <h3 class="comment-count">0 Comments</h3>
+        <% if session[:browserid_email] %>
+        <form id="comment-form">
+          <div class="form-row">
+            <textarea name="content" placeholder="Leave a comment..."></textarea>
+            <input id='user-email' type="hidden" name="email" data-email="<%= session[:browserid_email] %>">
+          </div>
+          <div class="form-row buttons">
+            <span class="email"></span>
+            <button class="btn submit" type="submit">Post your comment <%= session[:browserid_email] %></button>
+            <a href="/logout" class="btn logout dark browserid_logout">Logout</a>
+          </div>
+        </form>
+        <% else %>
+        <div class="no-user">
+          <p>You must login to leave a message...</p>
+          <a href="/login" class="browserid_login btn">Login with Persona</a>
         </div>
-        <div class="form-row buttons">
-          <span class="email"></span>
-          <button class="btn submit" type="submit">Post your comment <%= session[:browserid_email] %></button>
-          <a href="/logout" class="btn logout dark browserid_logout">Logout</a>
-        </div>
-      </form>
-      <% else %>
-      <div class="no-user">
-        <p>You must login to leave a message...</p>
-        <a href="/login" class="browserid_login btn">Login with Persona</a>
-      </div>
-      <% end %>
-      <section class="comment-container">
-        <ul id="comment-list" class="list-group"></ul>
+        <% end %>
+        <section class="comment-container">
+          <ul id="comment-list" class="list-group"></ul>
+        </section>
       </section>
-    </section>
+    </div>
   </div>
 </div>
 <footer>

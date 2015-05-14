@@ -1,7 +1,5 @@
 (function() {
 
-  "use strict";
-
   var $project = $('#pro, #pro-responsive').height()
 
   var projectsDisplay = function() {

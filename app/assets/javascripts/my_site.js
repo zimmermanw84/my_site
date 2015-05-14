@@ -139,6 +139,9 @@
     }
 
     // bootstrap modal fix
+    // Mobile Modal fix
+    $('.modal-dialog').css('display', 'none')
+
     $('.project-container, #connect-trigger').on('click', function() {
       if ( $('.modal-dialog').css('display') === 'none' ) {
         $('.modal-dialog').css('display', 'block')
@@ -147,7 +150,6 @@
 
     $('.close').on('click', function() {
       if ( $('.modal-dialog').css('display') === 'block' ) {
-        $('.modal-dialog').css('display', 'none')
       }
     });
 

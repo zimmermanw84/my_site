@@ -150,6 +150,7 @@
 
     $('.close').on('click', function() {
       if ( $('.modal-dialog').css('display') === 'block' ) {
+        $('.modal-dialog').css('display', 'none')
       }
     });
 

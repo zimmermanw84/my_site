@@ -16,8 +16,8 @@
 
 - RSPEC Testing
 
-- Make Responsive
-
 # Issues:
 
 - Fancy scroll over shoots target.
+
+-

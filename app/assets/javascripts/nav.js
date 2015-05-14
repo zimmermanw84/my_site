@@ -6,9 +6,11 @@
     $(window).scroll(function() {
       if ($(this).scrollTop() > $header) {
         $('.main-nav').addClass('navbar-fixed');
+        $('#intro').css('padding-top', '8.5em');
         $('.main-nav').removeClass('main-nav');
       } else {
         $('.navbar-fixed').addClass('main-nav');
+        $('#intro').css('padding-top', '1em');
         $('.main-nav').removeClass('navbar-fixed');
       }
     })

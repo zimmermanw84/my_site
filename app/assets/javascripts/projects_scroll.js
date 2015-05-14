@@ -1,6 +1,6 @@
 (function() {
 
-  $project = $('#pro').height() + 500
+  $project = $('#pro').height() + 300
   // 867 window index
 
   var projectsDisplay = function() {

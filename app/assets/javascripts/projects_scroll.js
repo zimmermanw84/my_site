@@ -1,6 +1,8 @@
 (function() {
 
-  var $project = $('#pro, #pro-responsive').height()
+  var $windowWidth = $(window).width();
+
+  var $project = $windowWidth >= 1165 ? $('#pro').height() : ( $('#pro-responsive').height() - 500 );
 
   var projectsDisplay = function() {
     $(window).scroll(function() {

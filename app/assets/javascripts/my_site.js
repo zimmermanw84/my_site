@@ -34,13 +34,12 @@
   var CommentView = Backbone.View.extend({
 
     tagName: 'li',
-
     // Super anit-pattern terrible >.<
-    template: "<header> <span class='author-email'><a href='#'><%= email %></a></span>" +
-    " <span class='date'><%= formatDate %></span> " +
+    template: "<header> <span class='author-email'><img src='http://gravatar.com/avatar/<%= hash %>" +
+      "?s=32'/></span>" + " <span class='date'><%= formatDate %></span> " +
     // the time will come when comments have to be deleted or break down and make an admin UI
     // " <nav> [<a href='#' class='delete'>x</a>]  </nav>" +
-    " </header> <div class='comment-content'> <%= content %> </div>",
+      " </header> <div class='comment-content'> <%= content %> </div>",
 
     events: {
       'click .delete': 'destroy',
@@ -57,7 +56,7 @@
 
     render: function(){
       var commentInfo = {
-        email: this.model.email,
+        hash: md5(this.model.email),
         content: this.model.content,
         formatDate: this.model.get('created_at'),
       }

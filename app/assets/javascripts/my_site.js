@@ -36,7 +36,7 @@
     tagName: 'li',
     // Super anit-pattern terrible >.<
     template: "<header> <span class='author-email'><img src='http://gravatar.com/avatar/<%= hash %>" +
-      "?s=32'/></span>" + " <span class='date'><%= formatDate %></span> " +
+      "?s=32' alt='user picture' /></span>" + " <span class='date'><%= formatDate %></span> " +
     // the time will come when comments have to be deleted or break down and make an admin UI
     // " <nav> [<a href='#' class='delete'>x</a>]  </nav>" +
       " </header> <div class='comment-content'> <%= content %> </div>",
@@ -46,9 +46,10 @@
     },
 
     initialize: function(params) {
-      if( !this.model ){
+      if( !this.model ) {
         throw new Error('You must provide a Comment model');
       };
+
       this.$el.attr( "class", "list-group-item" );
       this.listenTo( this.model, 'remove', this.remove );
       this.listenTo( this.model, 'sync', this.render );
@@ -139,17 +140,17 @@
 
     // bootstrap modal fix
     // Mobile Modal fix
-    $('.modal-dialog').css('display', 'none')
+    $('.modal-dialog').css('display', 'none');
 
     $('.project-container, #connect-trigger').on('click', function() {
       if ( $('.modal-dialog').css('display') === 'none' ) {
-        $('.modal-dialog').css('display', 'block')
+        $('.modal-dialog').css('display', 'block');
       }
     });
 
     $('.close').on('click', function() {
       if ( $('.modal-dialog').css('display') === 'block' ) {
-        $('.modal-dialog').css('display', 'none')
+        $('.modal-dialog').css('display', 'none');
       }
     });
 

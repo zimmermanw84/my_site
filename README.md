@@ -15,8 +15,3 @@
 # TODO:
 
 - RSPEC Testing
-
-# Issues:
-
-- Fancy scroll over shoots target.
-
